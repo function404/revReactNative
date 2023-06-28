@@ -1,81 +1,107 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { View } from "react-native";
-import { Text } from "react-native-paper";
-import styles from "../utils/style";
+import { View, Text, TextInput, Button } from 'react-native';
+
+import { db } from '../config/firebase';
+import { doc, updateDoc } from 'firebase/firestore';
+
+import styles from '../utils/style';
+
+import { useNavigation } from '@react-navigation/native';
 
 const EditTask = ( {route} ) => {
-  const { item } = route.params;
+  const { task, id } = route.params;
 
-  const [desc, setDesc] = useState(item.desc);
-  const [title, setTitle] = useState(item.title);
-  const [data, setData] = useState(item.data);
+  const navigation = useNavigation();
+
+  const [getDesc, setDesc] = useState('');
+  const [getTitle, setTitle] = useState('');
+  const [getData, setData] = useState('');
+
+  async function updateItemTask() {
+    if (getDesc !== '' && getTitle !== '' && getData !== '' ){
+      await updateDoc(doc(db, 'tasks', id), {
+        desc: getDesc,
+        title: getTitle,
+        data: getData,
+      }).then(() => {
+        alert('Tarefa atualizada com sucesso!');
+        navigation.navigate('Home');
+      }).catch((error) => {
+        alert(error);
+      });
+    } else {
+      alert('Insira todas as informações da tarefa!');
+    };
+  };
 
   return (
     <>
       <View>
-        <Text style={styles.title}>Editar tarefa</Text>
-        <View>
-          <Text>Titulo atual: {item.title}</Text>
-          <Text>Descrição atual: {item.desc}</Text>
-          <Text>Data atual: {item.data}</Text>
+        <Text style={styles.title}>Tarefa Atual</Text>
+
+        <View style={styles.centered}>
+          <Text>Titulo: {task.title}</Text>
+          <Text>Descrição: {task.desc}</Text>
+          <Text>Data: {task.data}</Text>
         </View>
 
         <View style={{ padding: 10,}}>
-        <TextInput
+          <Text style={{fontWeight: 'bold'}}>Novo titulo:</Text>
+          <TextInput
             style={{
               margin: 5,
               border: '1px solid #000',
               padding: 7,
             }}
-            label={'Titulo'}
-            placeholder={'Altere o titulo da tarefa'}
-            value={title}
+            value={getTitle}
+            placeholder={'Digite...'}
             onChangeText={setTitle}
-            mode="outlined"
           />
-      </View>
-      <View style={{ padding: 10,}}>
-        <TextInput
-          style={{
-            margin: 5,
-            border: '1px solid #000',
-            padding: 7,
-          }}
-          label={'Descrição'}
-          placeholder={'Altere a descrição da tarefa'}
-          value={desc}
-          onChangeText={setDesc}
-          mode="outlined"
-        />
-      </View>
-      <View style={{ padding: 10,}}>  
-        <TextInput
-          style={{
-            margin: 5,
-            border: '1px solid #000',
-            padding: 7,
+        </View>
 
-          }}
-          label={'Data'}
-          placeholder={'Altere a data da tarefa'}
-          value={data}
-          onChangeText={setData}
-          mode="outlined"
-        />
-      </View>
-      <View style={{ padding: 15,}}>
-        <Button 
-          style={{
-            marginTop: "10px",
-            backgroundColor: "#00c2cc",
-            borderColor: "#fff",
-          }}
-          labelStyle={{ color: "#fff" }}
-          title='Adicionar'
-          >Adicionar tarefas
-        </Button>
-      </View>
+        <View style={{ padding: 10,}}>
+          <Text style={{fontWeight: 'bold'}}>Nova descrição:</Text>
+          <TextInput
+            style={{
+              margin: 5,
+              border: '1px solid #000',
+              padding: 7,
+            }}
+            value={getDesc}
+            placeholder={'Digite...'}
+            onChangeText={setDesc}
+          />
+        </View>
+
+        <View style={{ padding: 10,}}>
+          <Text style={{fontWeight: 'bold'}}>Nova data:</Text>
+          <TextInput
+            style={{
+              margin: 5,
+              border: '1px solid #000',
+              padding: 7,
+
+            }}
+            value={getData}
+            placeholder={'Digite...'}
+            onChangeText={setData}
+          />
+        </View>
+
+        <View style={{ padding: 15,}}>
+          <Button 
+            style={{
+              marginTop: '10px',
+              backgroundColor: '#00c2cc',
+              borderColor: '#fff',
+            }}
+            labelStyle={{ color: '#fff' }}
+            title='Concluir'
+            onPress={updateItemTask}>
+          </Button>
+        </View>
+
       </View>
     </>
   );

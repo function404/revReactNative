@@ -1,67 +1,71 @@
 import React, { useState } from 'react';
 
 import { View, Text, TextInput, Button } from 'react-native';
-import styles from '../utils/style';
 
 import { db } from '../config/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
+import styles from '../utils/style';
 
-const AddTask = ({ navigation }) => {
-  const [desc, setDesc] = useState('');
-  const [title, setTitle] = useState('');
-  const [data, setData] = useState('');
+const AddTask = () => {
+  const [getDesc, setDesc] = useState('');
+  const [getTitle, setTitle] = useState('');
+  const [getData, setData] = useState('');
 
-  function addTask() {
-    if (desc !== '' && title !== '' && data !== '' ){
+  function addItemTask() {
+    if (getDesc !== '' && getTitle !== '' && getData !== '' ){
       const docRef = addDoc(collection(db, 'tasks'), {
-        desc: desc,
-        title: title,
-        data: data,
+        desc: getDesc,
+        title: getTitle,
+        data: getData,
       }).then((docRef) => {
-        console.log('Tarefa adicionado com sucesso!', docRef.id)
-        setResetTable()
+        alert('Tarefa adicionado com sucesso!', docRef.id)
+        setData('');
+        setDesc('');
+        setTitle('');
       }).catch((error) => {
-        console.log(error);
+        alert(error);
       });
     } else {
-      console.log('Insira todas as informações da tarefa!');
+      alert('Insira todas as informações da tarefa!');
     };
-    }
+  }
 
 
   return (
     <>
       <Text style={styles.title}>Adicionar tarefas</Text>
+
       <View style={{ padding: 10,}}>
-        <TextInput
+        <Text style={{fontWeight: 'bold'}}>Titulo:</Text>
+          <TextInput
             style={{
               margin: 5,
               border: '1px solid #000',
               padding: 7,
             }}
-            label={'Titulo'}
-            placeholder={'Digite o titulo da tarefa'}
-            value={title}
+            placeholder={'Digite...'}
+            value={getTitle}
             onChangeText={setTitle}
-            mode="outlined"
           />
       </View>
+
       <View style={{ padding: 10,}}>
+        <Text style={{fontWeight: 'bold'}}>Descrição:</Text>
         <TextInput
           style={{
             margin: 5,
             border: '1px solid #000',
             padding: 7,
           }}
-          label={'Descrição'}
-          placeholder={'Digite a descrição da tarefa'}
-          value={desc}
+          placeholder={'Digite...'}
+          value={getDesc}
           onChangeText={setDesc}
-          mode="outlined"
         />
       </View>
-      <View style={{ padding: 10,}}>  
+
+      <View style={{ padding: 10,}}>
+        <Text style={{fontWeight: 'bold'}}>Data:</Text>
         <TextInput
           style={{
             margin: 5,
@@ -70,24 +74,25 @@ const AddTask = ({ navigation }) => {
 
           }}
           label={'Data'}
-          placeholder={'Digite a data da tarefa'}
-          value={data}
+          placeholder={'Digite...'}
+          value={getData}
           onChangeText={setData}
-          mode="outlined"
         />
       </View>
+
       <View style={{ padding: 15,}}>
         <Button 
           style={{
-            marginTop: "10px",
-            backgroundColor: "#00c2cc",
-            borderColor: "#fff",
+            marginTop: '10px',
+            backgroundColor: '#00c2cc',
+            borderColor: '#fff',
           }}
-          labelStyle={{ color: "#fff" }}
+          labelStyle={{ color: '#fff' }}
           title='Adicionar'
-          onPress={addTask}>Adicionar tarefas
+          onPress={addItemTask}>
         </Button>
-      </View>    
+      </View>
+       
     </>
   );
 };

@@ -18,6 +18,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
+  },
+  centered:{
+    textAlign: 'left',
+    borderBottomColor: '#000',
+    borderBottomWidth: 1,
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+    width: '90%',
+    margin: 'auto',
   }
 });
 

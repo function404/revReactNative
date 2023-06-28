@@ -14,7 +14,7 @@ export default function RootNaviagtion() {
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name='Home' component={TabsNavigation} options={{headerShown: false}} />
-            <Stack.Screen name='EditTask' component={EditTaskScreen} options={{headerShown: true}} />
+            <Stack.Screen name='Editar Tarefa' component={EditTaskScreen} options={{headerShown: true}} />
             <Stack.Screen name='AddTask' component={AddTaskScreen} options={{headerShown: false}} />
         </Stack.Navigator>
     </NavigationContainer>
