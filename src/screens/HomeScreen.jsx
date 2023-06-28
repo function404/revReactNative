@@ -1,11 +1,9 @@
-import { View } from "react-native";
-import { Text } from "react-native-paper";
-import styles from "../utils/style";
+import * as React from 'react';
 
-export default function HomeScreen({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home Screen</Text>
-    </View>
-  );
-}
+import AllTasks from '../components/AllTask';
+
+const HomeScreen = () => {
+  return <AllTasks />
+};
+
+export default HomeScreen;

@@ -1,11 +1,13 @@
-import { View } from "react-native";
-import { Text } from "react-native-paper";
-import styles from "../utils/style";
+import { View } from 'react-native';
+import { Text } from 'react-native-paper';
+import styles from '../utils/style';
 
-export default function HomeScreen({ navigation }) {
+const AddTask = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Add Task Screen</Text>
+      <Text style={styles.title}>Adicionar Tarefas</Text>
     </View>
   );
-}
+};
+
+export default AddTask;

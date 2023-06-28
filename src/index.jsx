@@ -14,7 +14,7 @@ export default function RootNaviagtion() {
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name='Home' component={TabsNavigation} options={{headerShown: false}} />
-            <Stack.Screen name='EditTask' component={EditTaskScreen} options={{headerShown: false}} />
+            {/* <Stack.Screen name='EditTask' component={EditTaskScreen} options={{headerShown: false}} /> */}
             <Stack.Screen name='AddTask' component={AddTaskScreen} options={{headerShown: false}} />
         </Stack.Navigator>
     </NavigationContainer>
@@ -37,30 +37,19 @@ function TabsNavigation() {
           component={HomeScreen}
           options={{
             tabBarLabel: 'Início',
-            tabBarIcon: ({ color }) => (
+            tabBarIcon: () => (
               <MaterialCommunityIcons name='home' color={'#00c2cc'} size={26} />
             ),
           }}
         />
         <Tabs.Screen
           style={{ fontWeight: 'bold' }}
-          name='Edit Task'
-          component={EditTaskScreen}
-          options={{
-            tabBarLabel: 'Início',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name='?' color={'#00c2cc'} size={26} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          style={{ fontWeight: 'bold' }}
-          name='Add Task'
+          name='AddTask'
           component={AddTaskScreen}
           options={{
-            tabBarLabel: 'Início',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name='?' color={'#00c2cc'} size={26} />
+            tabBarLabel: 'Adicionar Tarefa',
+            tabBarIcon: () => (
+              <MaterialCommunityIcons name='account-plus' color={'#00c2cc'} size={26} />
             ),
           }}
         />
