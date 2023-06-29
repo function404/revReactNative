@@ -34,65 +34,68 @@ const AddTask = () => {
 
   return (
     <>
-      <Text style={styles.title}>Adicionar tarefas</Text>
+      <Text style={styles.title}>Adicionar tarefa(s)</Text>
+      <View style={{backgroundColor: '#fff'}}>
+        <View style={{ padding: 10 }}>
+          <Text style={{fontWeight: 'bold'}}>Titulo:</Text>
+            <TextInput
+              style={{
+                margin: 5,
+                border: '1px solid #3599cc',
+                padding: 7,
+                color: 'rgba(0, 0, 0, .7)',
+              }}
+              placeholder={'Digite...'}
+              value={getTitle}
+              onChangeText={setTitle}
+            />
+        </View>
 
-      <View style={{ padding: 10,}}>
-        <Text style={{fontWeight: 'bold'}}>Titulo:</Text>
+        <View style={{ padding: 10,}}>
+          <Text style={{fontWeight: 'bold'}}>Descrição:</Text>
           <TextInput
             style={{
               margin: 5,
-              border: '1px solid #000',
+              border: '1px solid #3599cc',
               padding: 7,
+              color: 'rgba(0, 0, 0, .7)',
             }}
             placeholder={'Digite...'}
-            value={getTitle}
-            onChangeText={setTitle}
+            value={getDesc}
+            onChangeText={setDesc}
           />
-      </View>
+        </View>
 
-      <View style={{ padding: 10,}}>
-        <Text style={{fontWeight: 'bold'}}>Descrição:</Text>
-        <TextInput
-          style={{
-            margin: 5,
-            border: '1px solid #000',
-            padding: 7,
-          }}
-          placeholder={'Digite...'}
-          value={getDesc}
-          onChangeText={setDesc}
-        />
-      </View>
+        <View style={{ padding: 10,}}>
+          <Text style={{fontWeight: 'bold'}}>Data:</Text>
+          <TextInput
+            style={{
+              margin: 5,
+              border: '1px solid #3599cc',
+              padding: 7,
+              color: 'rgba(0, 0, 0, .7)',
 
-      <View style={{ padding: 10,}}>
-        <Text style={{fontWeight: 'bold'}}>Data:</Text>
-        <TextInput
-          style={{
-            margin: 5,
-            border: '1px solid #000',
-            padding: 7,
+            }}
+            label={'Data'}
+            placeholder={'Digite...'}
+            value={getData}
+            onChangeText={setData}
+          />
+        </View>
 
-          }}
-          label={'Data'}
-          placeholder={'Digite...'}
-          value={getData}
-          onChangeText={setData}
-        />
+        <View style={{ padding: 15,}}>
+          <Button 
+            style={{
+              marginTop: '10px',
+              backgroundColor: '#3599cc',
+              borderColor: '#fff',
+            }}
+            labelStyle={{ color: '#fff' }}
+            title='Adicionar'
+            onPress={() => addItemTask()}>
+          </Button>
+        </View>
       </View>
-
-      <View style={{ padding: 15,}}>
-        <Button 
-          style={{
-            marginTop: '10px',
-            backgroundColor: '#00c2cc',
-            borderColor: '#fff',
-          }}
-          labelStyle={{ color: '#fff' }}
-          title='Adicionar'
-          onPress={addItemTask}>
-        </Button>
-      </View>
-       
     </>
   );
 };

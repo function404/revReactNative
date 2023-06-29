@@ -27,9 +27,9 @@ function TabsNavigation() {
     return (
       <Tabs.Navigator
         initialRouteName='Inicio'
-        activeColor='#000' // cor do texto ativado
-        inactiveColor='#000' // cor do texto inativo
-        barStyle={{ backgroundColor: 'rgba(0, 194, 204, 0.1)' }}
+        activeColor='#fff'
+        inactiveColor='#000'
+        barStyle={{ backgroundColor: 'rgba(53, 153, 204, .2)' }}
       >
         <Tabs.Screen
           style={{ fontWeight: 'bold' }}
@@ -38,7 +38,7 @@ function TabsNavigation() {
           options={{
             tabBarLabel: 'Início',
             tabBarIcon: () => (
-              <MaterialCommunityIcons name='home' color={'#00c2cc'} size={26} />
+              <MaterialCommunityIcons name='home' color={'#3599cc'} size={26} />
             ),
           }}
         />
@@ -49,7 +49,7 @@ function TabsNavigation() {
           options={{
             tabBarLabel: 'Adicionar Tarefa',
             tabBarIcon: () => (
-              <MaterialCommunityIcons name='account-plus' color={'#00c2cc'} size={26} />
+              <MaterialCommunityIcons name='account-plus' color={'#3599cc'} size={26} />
             ),
           }}
         />

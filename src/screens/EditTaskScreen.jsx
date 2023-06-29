@@ -41,9 +41,9 @@ const EditTask = ( {route} ) => {
         <Text style={styles.title}>Tarefa Atual</Text>
 
         <View style={styles.centered}>
-          <Text>Titulo: {task.title}</Text>
-          <Text>Descrição: {task.desc}</Text>
-          <Text>Data: {task.data}</Text>
+          <Text>• Titulo: <Text style={{fontWeight: 'bold'}}>{task.title}</Text></Text>
+          <Text>• Descrição: <Text style={{fontWeight: 'bold'}}>{task.desc}</Text></Text>
+          <Text>• Data: <Text style={{fontWeight: 'bold'}}>{task.data}</Text></Text>
         </View>
 
         <View style={{ padding: 10,}}>
@@ -51,8 +51,9 @@ const EditTask = ( {route} ) => {
           <TextInput
             style={{
               margin: 5,
-              border: '1px solid #000',
+              border: '1px solid #3599cc',
               padding: 7,
+              color: 'rgba(0, 0, 0, .7)',
             }}
             value={getTitle}
             placeholder={'Digite...'}
@@ -65,8 +66,9 @@ const EditTask = ( {route} ) => {
           <TextInput
             style={{
               margin: 5,
-              border: '1px solid #000',
+              border: '1px solid #3599cc',
               padding: 7,
+              color: 'rgba(0, 0, 0, .7)',
             }}
             value={getDesc}
             placeholder={'Digite...'}
@@ -79,8 +81,9 @@ const EditTask = ( {route} ) => {
           <TextInput
             style={{
               margin: 5,
-              border: '1px solid #000',
+              border: '1px solid #3599cc',
               padding: 7,
+              color: 'rgba(0, 0, 0, .7)',
 
             }}
             value={getData}
@@ -93,7 +96,7 @@ const EditTask = ( {route} ) => {
           <Button 
             style={{
               marginTop: '10px',
-              backgroundColor: '#00c2cc',
+              backgroundColor: '#3599cc',
               borderColor: '#fff',
             }}
             labelStyle={{ color: '#fff' }}
