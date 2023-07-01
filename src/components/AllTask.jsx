@@ -67,10 +67,10 @@ const AllTasks = () => {
                     {getAllItensList.length >= 1 ?
                         getAllItensList.map((item, index) => (
                             <View style={styles.taskContent} key={index}>
-                                <Text>• ID: {index}</Text>
-                                <Text>• Titulo: {item.title}</Text>
-                                <Text>• Descrição: {item.desc}</Text>
-                                <Text>• Data: {item.data}</Text>
+                                <Text style={{marginBottom: 2, marginTop: 2}}>• ID: <Text style={{fontWeight: 'bold'}}>{index}</Text></Text>
+                                <Text style={{marginBottom: 2, marginTop: 2}}>• Titulo:  <Text style={{fontWeight: 'bold'}}>{item.title}</Text></Text>
+                                <Text style={{marginBottom: 2, marginTop: 2}}>• Descrição:  <Text style={{fontWeight: 'bold'}}>{item.desc}</Text></Text>
+                                <Text style={{marginBottom: 2, marginTop: 2}}>• Data:  <Text style={{fontWeight: 'bold'}}>{item.data}</Text></Text>
                                 <View style={{ margin: 10 }}>
                                     <Button title='Editar' onPress={() => navigation.navigate('Editar Tarefa', {task: item, id: getID[index], element: index})} />
                                 </View>

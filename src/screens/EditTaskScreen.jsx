@@ -42,9 +42,9 @@ const EditTask = ( {route} ) => {
       </View>
 
       <View style={styles.centered}>
-        <Text>• Titulo: <Text style={{fontWeight: 'bold'}}>{task.title}</Text></Text>
-        <Text>• Descrição: <Text style={{fontWeight: 'bold'}}>{task.desc}</Text></Text>
-        <Text>• Data: <Text style={{fontWeight: 'bold'}}>{task.data}</Text></Text>
+        <Text style={{marginBottom: 2, marginTop: 2}}>• Titulo: <Text style={{fontWeight: 'bold'}}>{task.title}</Text></Text>
+        <Text style={{marginBottom: 2, marginTop: 2}}>• Descrição: <Text style={{fontWeight: 'bold'}}>{task.desc}</Text></Text>
+        <Text style={{marginBottom: 2, marginTop: 2}}>• Data: <Text style={{fontWeight: 'bold'}}>{task.data}</Text></Text>
       </View>
 
       <View style={{ padding: 10,}}>
