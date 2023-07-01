@@ -33,8 +33,10 @@ const AddTask = () => {
 
 
   return (
-    <>
-      <Text style={styles.title}>Adicionar tarefa(s)</Text>
+    <View>
+      <View style={styles.header}>
+        <Text style={styles.title}>Adicionar tarefa</Text>
+      </View>
       <View style={{backgroundColor: '#fff'}}>
         <View style={{ padding: 10 }}>
           <Text style={{fontWeight: 'bold'}}>Titulo:</Text>
@@ -96,7 +98,7 @@ const AddTask = () => {
           </Button>
         </View>
       </View>
-    </>
+    </View>
   );
 };
 

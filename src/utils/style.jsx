@@ -1,10 +1,19 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  header: {
+    paddingTop: 30,
+    backgroundColor: '#3599cc',
+    paddingBottom: 5,
+    paddingHorizontal: 5,
+  },
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#fff',
+  },
+  scrollView: {
+    flex: 1,
+    padding: 10,
   },
   taskContent: {
     backgroundColor: 'rgba(53, 153, 204, .2)',
@@ -14,11 +23,11 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   title: {
-    fontSize: 20,
+    marginTop: 10,
+    color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#3599cc',
-    margin: 10,
+    fontSize: 20,
+    textAlign: 'center'
   },
   centered:{
     textAlign: 'left',
@@ -26,6 +35,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomWidth: 1,
     paddingBottom: 10,
+    marginTop: 10,
     width: '90%',
     margin: 'auto',
   },
