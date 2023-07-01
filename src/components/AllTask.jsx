@@ -71,10 +71,10 @@ const AllTasks = () => {
                                 <Text>• Titulo: {item.title}</Text>
                                 <Text>• Descrição: {item.desc}</Text>
                                 <Text>• Data: {item.data}</Text>
-                                <View style={{marginBottom: 10, marginTop: 5, width: '75%', marginHorizontal: 'auto'}}>
+                                <View style={{ margin: 10 }}>
                                     <Button title='Editar' onPress={() => navigation.navigate('Editar Tarefa', {task: item, id: getID[index], element: index})} />
                                 </View>
-                                <View style={{marginBottom: 5, width: '70%', marginHorizontal: 'auto'}}>
+                                <View style={{ margin: 10 }}>
                                     <Button title='Excluir' onPress={() => deleteItemTask(getID[index])} />
                                 </View>
                             </View>

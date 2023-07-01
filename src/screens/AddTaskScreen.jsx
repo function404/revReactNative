@@ -43,7 +43,11 @@ const AddTask = () => {
             <TextInput
               style={{
                 margin: 5,
-                border: '1px solid #3599cc',
+                borderRightWidth: 1,
+                borderLeftWidth: 1,
+                borderBottomWidth: 1,
+                borderTopWidth: 1,
+                borderColor: '#3599cc',
                 padding: 7,
                 color: 'rgba(0, 0, 0, .7)',
               }}
@@ -58,7 +62,11 @@ const AddTask = () => {
           <TextInput
             style={{
               margin: 5,
-              border: '1px solid #3599cc',
+              borderRightWidth: 1,
+              borderLeftWidth: 1,
+              borderBottomWidth: 1,
+              borderTopWidth: 1,
+              borderColor: '#3599cc',
               padding: 7,
               color: 'rgba(0, 0, 0, .7)',
             }}
@@ -73,7 +81,11 @@ const AddTask = () => {
           <TextInput
             style={{
               margin: 5,
-              border: '1px solid #3599cc',
+              borderRightWidth: 1,
+              borderLeftWidth: 1,
+              borderBottomWidth: 1,
+              borderTopWidth: 1,
+              borderColor: '#3599cc',
               padding: 7,
               color: 'rgba(0, 0, 0, .7)',
 

@@ -35,8 +35,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomWidth: 1,
     paddingBottom: 10,
+    padding: 10,
     marginTop: 10,
-    width: '90%',
+    marginBottom: 10,
+    width: '100%',
     margin: 'auto',
   },
   error: {
