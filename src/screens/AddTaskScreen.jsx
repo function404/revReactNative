@@ -5,6 +5,8 @@ import { View, Text, TextInput, Button } from 'react-native';
 import { db } from '../config/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
+import { TextInputMask } from 'react-native-masked-text';
+
 import styles from '../utils/style';
 
 const AddTask = () => {
@@ -13,7 +15,7 @@ const AddTask = () => {
   const [getData, setData] = useState('');
 
   function addItemTask() {
-    if (getDesc !== '' && getTitle !== '' && getData !== '' ){
+    if (getDesc !== '' && getTitle !== '' && getData !== ''){
       const docRef = addDoc(collection(db, 'tasks'), {
         desc: getDesc,
         title: getTitle,
@@ -29,8 +31,7 @@ const AddTask = () => {
     } else {
       alert('Insira todas as informações da tarefa!');
     };
-  }
-
+  };
 
   return (
     <View>
@@ -53,7 +54,7 @@ const AddTask = () => {
               }}
               placeholder={'Digite...'}
               value={getTitle}
-              onChangeText={setTitle}
+              onChangeText={(e) => setTitle(e)}
             />
         </View>
 
@@ -72,13 +73,17 @@ const AddTask = () => {
             }}
             placeholder={'Digite...'}
             value={getDesc}
-            onChangeText={setDesc}
+            onChangeText={(e) => setDesc(e)}
           />
         </View>
 
         <View style={{ padding: 10,}}>
           <Text style={{fontWeight: 'bold'}}>Data:</Text>
-          <TextInput
+          <TextInputMask
+            type={'datetime'}
+            options={{
+              format: 'DD/MM/YYYY',
+            }}
             style={{
               margin: 5,
               borderRightWidth: 1,
@@ -88,12 +93,11 @@ const AddTask = () => {
               borderColor: '#3599cc',
               padding: 7,
               color: 'rgba(0, 0, 0, .7)',
-
             }}
-            label={'Data'}
-            placeholder={'Digite...'}
             value={getData}
-            onChangeText={setData}
+            placeholderTextColor={'rgba(0, 0, 0, .7)'}
+            placeholder='Digite...'
+            onChangeText={(e) => setData(e)}
           />
         </View>
 

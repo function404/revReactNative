@@ -8,6 +8,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 import styles from '../utils/style';
 
 import { useNavigation } from '@react-navigation/native';
+import { TextInputMask } from 'react-native-masked-text';
 
 const EditTask = ( {route} ) => {
   const { task, id, element } = route.params;
@@ -62,7 +63,7 @@ const EditTask = ( {route} ) => {
           }}
           value={getTitle}
           placeholder={'Digite...'}
-          onChangeText={setTitle}
+          onChangeText={(e) => setTitle(e)}
         />
       </View>
 
@@ -81,28 +82,32 @@ const EditTask = ( {route} ) => {
           }}
           value={getDesc}
           placeholder={'Digite...'}
-          onChangeText={setDesc}
+          onChangeText={(e) => setDesc(e)}
         />
       </View>
 
       <View style={{ padding: 10,}}>
         <Text style={{fontWeight: 'bold'}}>Nova data:</Text>
-        <TextInput
-          style={{
-            margin: 5,
-            borderRightWidth: 1,
-            borderLeftWidth: 1,
-            borderBottomWidth: 1,
-            borderTopWidth: 1,
-            borderColor: '#3599cc',
-            padding: 7,
-            color: 'rgba(0, 0, 0, .7)',
-
-          }}
-          value={getData}
-          placeholder={'Digite...'}
-          onChangeText={setData}
-        />
+          <TextInputMask
+            type={'datetime'}
+            options={{
+              format: 'DD/MM/YYYY',
+            }}
+            style={{
+              margin: 5,
+              borderRightWidth: 1,
+              borderLeftWidth: 1,
+              borderBottomWidth: 1,
+              borderTopWidth: 1,
+              borderColor: '#3599cc',
+              padding: 7,
+              color: 'rgba(0, 0, 0, .7)',
+            }}
+            value={getData}
+            placeholderTextColor={'rgba(0, 0, 0, .7)'}
+            placeholder='Digite...'
+            onChangeText={(e) => setData(e)}
+          />
       </View>
 
       <View style={{ margin: 10 }}>

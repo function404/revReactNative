@@ -32,7 +32,7 @@ const AllTasks = () => {
             setAllItensList(allNames);
             setID(allIDs)
         }catch (error) {
-            alert(error);
+            console.log(error);
         }
     };
 
