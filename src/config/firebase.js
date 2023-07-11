@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAUApvSeV0hvnpgopthdvFHka6d_dZbyAY',
-  authDomain: 'maca-todo-app.firebaseapp.com',
-  projectId: 'maca-todo-app',
-  storageBucket: 'maca-todo-app.appspot.com',
-  messagingSenderId: '789609324235',
-  appId: '1:789609324235:web:3739e2f08fa517f807054e'
+  apiKey: 'AIzaSyD-F5PAm4bneW3qUx5t2bxQtD1n6Fnv0iA',
+  authDomain: 'maca-9843d.firebaseapp.com',
+  projectId: 'maca-9843d',
+  storageBucket: 'maca-9843d.appspot.com',
+  messagingSenderId: '861484391841',
+  appId: '1:861484391841:web:0e1886788a3e93180bffe0'
 };
 
 const app = initializeApp(firebaseConfig);
