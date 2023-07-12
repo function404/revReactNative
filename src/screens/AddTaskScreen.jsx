@@ -20,6 +20,7 @@ const AddTask = () => {
         desc: getDesc,
         title: getTitle,
         data: getData,
+        edited: false,
       }).then((docRef) => {
         alert('Tarefa adicionado com sucesso!', docRef.id)
         setData('');

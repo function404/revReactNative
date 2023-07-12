@@ -25,6 +25,7 @@ const EditTask = ( {route} ) => {
         desc: getDesc,
         title: getTitle,
         data: getData,
+        edited: true,
       }).then(() => {
         alert('Tarefa atualizada com sucesso!');
         navigation.navigate('Home');

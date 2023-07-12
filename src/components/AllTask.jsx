@@ -77,6 +77,14 @@ const AllTasks = () => {
                                 <View style={{ margin: 10 }}>
                                     <Button title='Excluir' onPress={() => deleteItemTask(getID[index])} />
                                 </View>
+                                {item.edited === true
+                                ?
+                                    <View style={{width: '35%', textAlign: 'center'}}>
+                                        <Text style={{padding: 5, fontWeight: 'bold', borderRadius: 10, color: '#3599cc', marginTop: 10, backgroundColor: 'rgba(53, 153, 204, .2)'}}>Tarefa editada</Text>
+                                    </View>
+                                :
+                                    <></>
+                                }
                             </View>
                         ))
                     :
